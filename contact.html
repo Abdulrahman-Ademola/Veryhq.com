@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Verx Infrastructure Holdings</title>
+  <meta name="description" content="Get in touch with Verx — an infrastructure holdings company based in Nigeria."/>
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #contact { background: var(--beige); }
+    .contact-inner { max-width: 1200px; margin: 0 auto; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-label { font-size: 11px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--text-light); }
+    .form-input, .form-textarea { font-family: var(--sans); font-size: 14px; font-weight: 300;
+      color: var(--text-dark); background: transparent; border: none;
+      border-bottom: 1px solid var(--beige-2); padding: 12px 0; outline: none;
+      transition: border-color 0.2s; width: 100%; }
+    .form-input:focus, .form-textarea:focus { border-bottom-color: var(--red); }
+    .form-textarea { resize: none; height: 100px; }
+    .form-submit { margin-top: 8px; padding: 16px 0; background: var(--dark); color: #fff;
+      font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; width: 100%; }
+    .form-submit:hover { background: var(--red); }
+    .contact-info { padding-top: 16px; }
+    .contact-detail { margin-bottom: 40px; }
+    .contact-detail-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--text-light); margin-bottom: 8px; }
+    .contact-detail-value { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--text-dark); }
+    .contact-detail-value a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .contact-detail-value a:hover { color: var(--red); }
+    @media (max-width: 900px) { .contact-inner { grid-template-columns: 1fr; gap: 48px; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="Verx"/><span class="nav-logo-text">Verx</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="subsidiaries.html">Subsidiaries</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="contact.html">Get in Touch</a>
+    <div class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <div class="page-header-grid"></div>
+      <div class="page-header-glow"></div>
+      <div class="page-header-content">
+        <p class="page-header-eyebrow">Get in Touch</p>
+        <h1 class="page-header-title">Let's <em>talk</em></h1>
+        <p class="page-header-sub">Partners, collaborators, and the curious — reach the people behind Verx and its subsidiaries.</p>
+      </div>
+    </div>
+
+    <section id="contact">
+      <div class="contact-inner">
+        <div class="reveal">
+          <p class="section-eyebrow">Send a Message</p>
+          <h2 class="section-title" style="font-size: clamp(28px,4vw,40px);">Start a <em>conversation</em></h2>
+          <div class="contact-form" style="margin-top: 32px;">
+            <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Full name"/></div>
+            <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@example.com"/></div>
+            <div class="form-group"><label class="form-label">Subject</label><input class="form-input" type="text" placeholder="Partnership / General / Other"/></div>
+            <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell us a little about why you're reaching out…"></textarea></div>
+            <button class="form-submit">Send Message</button>
+          </div>
+        </div>
+        <div class="contact-info reveal">
+          <div class="contact-detail"><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="mailto:hello@verx.co">hello@verx.co</a></div></div>
+          <div class="contact-detail"><div class="contact-detail-label">Headquarters</div><div class="contact-detail-value">Lagos, Nigeria</div></div>
+          <div class="contact-detail"><div class="contact-detail-label">What We Are</div><div class="contact-detail-value">Infrastructure Holdings</div></div>
+          <div class="contact-detail"><div class="contact-detail-label">Subsidiaries</div><div class="contact-detail-value"><a href="https://credme.co" target="_blank">CredMe →</a></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo"><img src="logo.png" alt="Verx"/><span class="footer-logo-text">Verx</span></div>
+    <p class="footer-copy">© 2025 Verx — Infrastructure Holdings. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="subsidiaries.html">Subsidiaries</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

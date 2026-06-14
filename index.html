@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verx — Infrastructure Holdings Company</title>
+  <meta name="description" content="Verx is an infrastructure holdings company — the foundation its subsidiaries are built on. CredMe, its first subsidiary, operates in fintech."/>
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* HERO */
+    #hero {
+      min-height: calc(100vh - 77px);
+      background: var(--dark);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden; padding: 60px;
+    }
+    .hero-bg-grid { position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px; pointer-events: none; }
+    .hero-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 640px; height: 420px;
+      background: radial-gradient(ellipse, rgba(212,43,43,0.13) 0%, transparent 70%); pointer-events: none; }
+    .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+    .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 30px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+    .hero-logo-mark { width: 92px; height: 92px; margin-bottom: 36px; border-radius: 18px;
+      opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
+    .hero-headline { font-family: var(--serif); font-size: clamp(48px, 7.5vw, 92px); font-weight: 300;
+      line-height: 1.02; color: #fff; letter-spacing: -0.01em; max-width: 860px;
+      opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards; }
+    .hero-headline em { font-style: italic; color: var(--red); }
+    .hero-sub { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.55); letter-spacing: 0.02em;
+      margin-top: 30px; max-width: 540px; line-height: 1.75;
+      opacity: 0; animation: fadeUp 0.9s ease 0.8s forwards; }
+    .hero-actions { display: flex; gap: 16px; margin-top: 48px; flex-wrap: wrap; justify-content: center;
+      opacity: 0; animation: fadeUp 0.9s ease 1s forwards; }
+
+    /* INTRO STATEMENT */
+    #intro { background: var(--beige); text-align: center; padding: 110px 60px; }
+    .intro-inner { max-width: 880px; margin: 0 auto; }
+    .intro-statement { font-family: var(--serif); font-size: clamp(28px, 4vw, 46px); font-weight: 300;
+      line-height: 1.35; color: var(--text-dark); }
+    .intro-statement strong { font-weight: 400; color: var(--red); font-style: italic; }
+
+    /* THE MODEL — how Verx works */
+    #model { background: var(--beige-dark); padding: 100px 60px; }
+    .model-inner { max-width: 1200px; margin: 0 auto; }
+    .model-head { max-width: 620px; margin-bottom: 64px; }
+    .model-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .model-step { background: var(--dark); padding: 48px 38px; position: relative; }
+    .model-step-num { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--red);
+      margin-bottom: 24px; display: block; }
+    .model-step-title { font-family: var(--serif); font-size: 26px; font-weight: 400; color: #fff;
+      margin-bottom: 14px; line-height: 1.2; }
+    .model-step-text { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.75; }
+
+    /* SUBSIDIARIES PREVIEW */
+    #subs { background: var(--dark); padding: 110px 60px; }
+    .subs-inner { max-width: 1200px; margin: 0 auto; }
+    .subs-head { text-align: center; margin-bottom: 64px; }
+    .subs-head .section-title { color: #fff; margin: 0 auto 16px; }
+    .subs-head .section-eyebrow { color: var(--red); }
+    .subs-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2px; }
+    .sub-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+      padding: 56px 48px; position: relative; overflow: hidden; transition: transform 0.3s ease; }
+    .sub-card:hover { transform: translateY(-4px); }
+    .sub-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0;
+      background: var(--red); transition: height 0.4s ease; }
+    .sub-card:hover::before { height: 100%; }
+    .sub-card-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 20px; }
+    .sub-card-name { font-family: var(--serif); font-size: 42px; font-weight: 300; color: #fff;
+      margin-bottom: 18px; line-height: 1.05; }
+    .sub-card-desc { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.75;
+      margin-bottom: 32px; max-width: 520px; }
+    .sub-card-link { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); text-decoration: none; display: inline-flex; align-items: center;
+      gap: 8px; transition: color 0.2s; }
+    .sub-card-link:hover { color: var(--red); }
+    .sub-card-link svg { transition: transform 0.2s; }
+    .sub-card-link:hover svg { transform: translateX(4px); }
+    .sub-card.empty { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .empty-badge { display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.15);
+      padding: 4px 10px; margin-bottom: 20px; }
+    .empty-text { font-family: var(--serif); font-size: 24px; font-weight: 300; color: rgba(255,255,255,0.4);
+      line-height: 1.3; }
+
+    /* WHO WE ARE */
+    #who { background: var(--beige); padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .who-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .who-stat { background: var(--dark); padding: 38px 30px; display: flex; flex-direction: column; gap: 8px; }
+    .who-stat:nth-child(2) { background: var(--red); }
+    .who-stat-num { font-family: var(--serif); font-size: 44px; font-weight: 300; color: #fff; line-height: 1; }
+    .who-stat-label { font-size: 11px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); }
+
+    /* CTA BAND */
+    #cta { background: var(--dark); padding: 110px 60px; text-align: center; position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(212,43,43,0.10) 0%, transparent 70%); }
+    .cta-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+    .cta-title { font-family: var(--serif); font-size: clamp(34px, 5vw, 56px); font-weight: 300;
+      color: #fff; line-height: 1.1; margin-bottom: 24px; }
+    .cta-title em { font-style: italic; color: var(--red); }
+    .cta-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7;
+      margin-bottom: 40px; }
+
+    @media (max-width: 900px) {
+      #intro, #model, #subs, #cta { padding: 70px 24px; }
+      .model-steps { grid-template-columns: 1fr; }
+      .subs-grid { grid-template-columns: 1fr; }
+      #who { grid-template-columns: 1fr; gap: 48px; padding: 70px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="Verx"/><span class="nav-logo-text">Verx</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="subsidiaries.html">Subsidiaries</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="contact.html">Get in Touch</a>
+    <div class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Infrastructure Holdings Company</p>
+        <img class="hero-logo-mark" src="logo.png" alt="Verx"/>
+        <h1 class="hero-headline">We build the <em>foundation</em>.<br>They build the future.</h1>
+        <p class="hero-sub">Verx is an infrastructure holdings company — the structural backbone its subsidiaries are built on, so each can go further in its own field.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="subsidiaries.html">Our Subsidiaries</a>
+          <a class="btn-ghost btn-ghost-light" href="about.html">About Verx</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO STATEMENT -->
+    <section id="intro">
+      <div class="intro-inner reveal">
+        <p class="intro-statement">Verx doesn't operate in one market. It builds the <strong>infrastructure</strong> — ownership, governance, capital and operating foundation — that lets each of its companies pursue its own.</p>
+      </div>
+    </section>
+
+    <!-- THE MODEL -->
+    <section id="model">
+      <div class="model-inner">
+        <div class="model-head reveal">
+          <p class="section-eyebrow">How Verx Works</p>
+          <h2 class="section-title">One foundation.<br>Many <em>directions</em>.</h2>
+          <p class="section-body">Verx is the parent. Each subsidiary is independent — free to choose its sector, its product, and its path. The infrastructure stays the same; what's built on it does not.</p>
+        </div>
+        <div class="model-steps">
+          <div class="model-step reveal">
+            <span class="model-step-num">01</span>
+            <h3 class="model-step-title">Verx holds the structure</h3>
+            <p class="model-step-text">Ownership, governance, capital, and the legal and operational backbone every company needs to stand on solid ground.</p>
+          </div>
+          <div class="model-step reveal">
+            <span class="model-step-num">02</span>
+            <h3 class="model-step-title">Subsidiaries choose their field</h3>
+            <p class="model-step-text">Each company under Verx pursues its own market. CredMe, the first, went into fintech. The next will choose its own.</p>
+          </div>
+          <div class="model-step reveal">
+            <span class="model-step-num">03</span>
+            <h3 class="model-step-title">Built to last</h3>
+            <p class="model-step-text">Focused companies, built on a shared foundation designed for the long term — not quick exits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSIDIARIES PREVIEW -->
+    <section id="subs">
+      <div class="subs-inner">
+        <div class="subs-head reveal">
+          <p class="section-eyebrow">Our Subsidiaries</p>
+          <h2 class="section-title">The companies we hold</h2>
+        </div>
+        <div class="subs-grid">
+          <div class="sub-card reveal">
+            <div class="sub-card-tag">Fintech</div>
+            <div class="sub-card-name">CredMe</div>
+            <p class="sub-card-desc">A fintech platform that helps people in Nigeria understand and build their credit — and get matched with lenders who are likely to approve them. CredMe turns scattered financial data into a clear picture of someone's borrowing power, then puts that picture to work.</p>
+            <a class="sub-card-link" href="https://credme.co" target="_blank">
+              Visit credme.co
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="sub-card empty reveal">
+            <span class="empty-badge">Coming Soon</span>
+            <p class="empty-text">The next company is being built.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section id="who">
+      <div class="reveal">
+        <p class="section-eyebrow">Who We Are</p>
+        <h2 class="section-title">A holding company<br>built for the <em>long term</em></h2>
+        <p class="section-body">Founded in Nigeria, Verx exists to build and hold companies that matter — providing the infrastructure they need and the patience they deserve. We're not chasing trends. We're building institutions.</p>
+      </div>
+      <div class="who-stats reveal">
+        <div class="who-stat"><div class="who-stat-num">2025</div><div class="who-stat-label">Founded</div></div>
+        <div class="who-stat"><div class="who-stat-num">1+</div><div class="who-stat-label">Subsidiaries</div></div>
+        <div class="who-stat"><div class="who-stat-num">NG</div><div class="who-stat-label">Headquartered</div></div>
+        <div class="who-stat" style="background: var(--dark-2);"><div class="who-stat-num" style="font-size:28px; padding-top:8px;">Long</div><div class="who-stat-label">Term Horizon</div></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+      <div class="cta-glow"></div>
+      <div class="cta-inner reveal">
+        <h2 class="cta-title">Building something<br>worth <em>holding</em>?</h2>
+        <p class="cta-sub">Whether you're a partner, collaborator, or simply curious about what we're building — we'd like to hear from you.</p>
+        <a class="btn-primary" href="contact.html">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo"><img src="logo.png" alt="Verx"/><span class="footer-logo-text">Verx</span></div>
+    <p class="footer-copy">© 2025 Verx — Infrastructure Holdings. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="subsidiaries.html">Subsidiaries</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

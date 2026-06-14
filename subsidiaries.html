@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subsidiaries — Verx Infrastructure Holdings</title>
+  <meta name="description" content="The companies held by Verx. CredMe, its first subsidiary, is a fintech platform helping people build credit and access loans."/>
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #subs-page { background: var(--beige-dark); }
+    .subs-page-inner { max-width: 1100px; margin: 0 auto; }
+
+    /* Full subsidiary feature block */
+    .sub-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--dark);
+      margin-bottom: 2px; overflow: hidden; }
+    .sub-feature-body { padding: 64px 56px; display: flex; flex-direction: column; justify-content: center; }
+    .sub-feature-visual { background: linear-gradient(135deg, #1c1c1c 0%, #141414 100%);
+      position: relative; display: flex; align-items: center; justify-content: center;
+      min-height: 360px; overflow: hidden; }
+    .sub-feature-visual::before { content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(212,43,43,0.12) 0%, transparent 65%); }
+    .sub-mark { font-family: var(--serif); font-size: 96px; font-weight: 300; color: #fff;
+      position: relative; z-index: 2; letter-spacing: -0.02em; }
+    .sub-mark span { color: var(--red); }
+    .sub-feature-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 18px; }
+    .sub-feature-name { font-family: var(--serif); font-size: 46px; font-weight: 300; color: #fff;
+      margin-bottom: 8px; line-height: 1.05; }
+    .sub-feature-line { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.45);
+      font-style: italic; font-family: var(--serif); margin-bottom: 28px; }
+    .sub-feature-desc { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.8;
+      margin-bottom: 16px; }
+    .sub-feature-link { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 16px; padding: 13px 28px; background: var(--red); width: fit-content;
+      transition: background 0.2s, transform 0.2s; }
+    .sub-feature-link:hover { background: var(--red-light); transform: translateY(-1px); }
+
+    /* Empty / coming soon row */
+    .sub-empty { background: rgba(20,20,20,0.04); border: 1px dashed var(--beige-2);
+      padding: 56px; text-align: center; }
+    .sub-empty-badge { display: inline-block; font-size: 9px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--text-light); border: 1px solid var(--beige-2);
+      padding: 4px 12px; margin-bottom: 18px; }
+    .sub-empty-text { font-family: var(--serif); font-size: 26px; font-weight: 300; color: var(--text-mid);
+      line-height: 1.3; }
+
+    @media (max-width: 900px) {
+      .sub-feature { grid-template-columns: 1fr; }
+      .sub-feature-visual { min-height: 220px; order: -1; }
+      .sub-feature-body { padding: 48px 28px; }
+      .sub-mark { font-size: 64px; }
+      .sub-empty { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="Verx"/><span class="nav-logo-text">Verx</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="subsidiaries.html" class="active">Subsidiaries</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="contact.html">Get in Touch</a>
+    <div class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <div class="page-header-grid"></div>
+      <div class="page-header-glow"></div>
+      <div class="page-header-content">
+        <p class="page-header-eyebrow">Our Subsidiaries</p>
+        <h1 class="page-header-title">The companies<br>Verx <em>holds</em></h1>
+        <p class="page-header-sub">Each is wholly owned by Verx and free to lead its own market. Here's who they are and what they do.</p>
+      </div>
+    </div>
+
+    <section id="subs-page">
+      <div class="subs-page-inner">
+
+        <!-- CredMe full feature -->
+        <div class="sub-feature reveal">
+          <div class="sub-feature-body">
+            <div class="sub-feature-tag">Subsidiary 01 · Fintech</div>
+            <div class="sub-feature-name">CredMe</div>
+            <div class="sub-feature-line">Know your credit. Get the loan.</div>
+            <p class="sub-feature-desc">CredMe is a fintech platform that helps people in Nigeria understand and build their credit — and get matched with lenders likely to approve them.</p>
+            <p class="sub-feature-desc">It securely brings together someone's financial activity across their bank accounts, turns it into a clear credit profile, and shows them exactly where they stand and how to improve. When they're ready to borrow, CredMe connects them to the right lenders — and gives those lenders pre-qualified, loan-ready applicants in return.</p>
+            <a class="sub-feature-link" href="https://credme.co" target="_blank">
+              Visit credme.co
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="sub-feature-visual">
+            <div class="sub-mark">Cred<span>Me</span></div>
+          </div>
+        </div>
+
+        <!-- Coming soon -->
+        <div class="sub-empty reveal">
+          <span class="sub-empty-badge">Coming Soon</span>
+          <p class="sub-empty-text">The next Verx company is being built.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo"><img src="logo.png" alt="Verx"/><span class="footer-logo-text">Verx</span></div>
+    <p class="footer-copy">© 2025 Verx — Infrastructure Holdings. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="subsidiaries.html">Subsidiaries</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
